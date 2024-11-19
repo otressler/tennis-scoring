@@ -169,6 +169,21 @@ public class GameTests
         Assert.Equal("Ad-Out", score);
     }
 
+    [Fact]
+    public void GetScore_PlayerOneCancelsAdvantageOut_ShouldReturn4040()
+    {
+        // Arrange
+        Game game = CreateTiedGame();
+        game.PlayerTwoScores();
+        game.PlayerOneScores();
+        
+        // Act
+        string score = game.GetScore();
+        
+        // Assert
+        Assert.Equal("40-40", score);
+    }
+    
     private static Game CreateTiedGame()
     {
         var game = new Game();

@@ -23,6 +23,12 @@ public class Game
             _advantage = Advantage.PlayerOne;
             return;
         }
+
+        if (_advantage == Advantage.PlayerTwo)
+        {
+            _advantage = Advantage.None;
+            return;
+        }
         _playerOneScore++;
     }
     
@@ -33,6 +39,12 @@ public class Game
             _playerTwoScore == 3)
         {
             _advantage = Advantage.PlayerTwo;
+            return;
+        }
+        
+        if (_advantage == Advantage.PlayerOne)
+        {
+            _advantage = Advantage.None;
             return;
         }
         _playerTwoScore++;
