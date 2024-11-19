@@ -184,6 +184,21 @@ public class GameTests
         Assert.Equal("40-40", score);
     }
     
+    [Fact]
+    public void GetScore_PlayerTwoCancelsAdvantageIn_ShouldReturn4040()
+    {
+        // Arrange
+        Game game = CreateTiedGame();
+        game.PlayerOneScores();
+        game.PlayerTwoScores();
+        
+        // Act
+        string score = game.GetScore();
+        
+        // Assert
+        Assert.Equal("40-40", score);
+    }
+    
     private static Game CreateTiedGame()
     {
         var game = new Game();
