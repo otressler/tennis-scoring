@@ -16,6 +16,13 @@ public class Game
     
     public void PlayerOneScores()
     {
+        if (_advantage == Advantage.None &&
+            _playerOneScore == 3 &&
+            _playerTwoScore == 3)
+        {
+            _advantage = Advantage.PlayerOne;
+            return;
+        }
         _playerOneScore++;
     }
     
@@ -29,6 +36,10 @@ public class Game
         if (_advantage == Advantage.None)
         {
             return $"{GetPlayerScore(_playerOneScore)}-{GetPlayerScore(_playerTwoScore)}";
+        }
+        if (_advantage == Advantage.PlayerOne)
+        {
+            return "Ad-In";
         }
         throw new NotImplementedException();
     }
