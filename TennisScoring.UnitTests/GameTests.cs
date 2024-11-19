@@ -154,6 +154,20 @@ public class GameTests
         // Assert
         Assert.Equal("Ad-In", score);
     }
+    
+    [Fact]
+    public void GetScore_PlayerTwoTakesAdvantage_ShouldReturnAdOut()
+    {
+        // Arrange
+        Game game = CreateTiedGame();
+        game.PlayerTwoScores();
+        
+        // Act
+        string score = game.GetScore();
+        
+        // Assert
+        Assert.Equal("Ad-Out", score);
+    }
 
     private static Game CreateTiedGame()
     {
